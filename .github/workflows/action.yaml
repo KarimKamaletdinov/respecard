@@ -17,6 +17,10 @@ jobs:
         uses: actions/setup-node@v3
       - name: Remove .gitignore
         run: rm .gitignore
+      - name: Install dependencies
+        run: npm install
+      - name: Install dev dependencies
+        run: npm install -dev
       - name: Build
         run: npm run build
       - name: Setup Pages

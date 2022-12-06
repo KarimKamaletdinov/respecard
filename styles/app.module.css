@@ -1,0 +1,17 @@
+@media (min-width: 576px) { 
+    .picture {
+        max-width: 30%;
+    }
+    .pictureContainer{
+        text-align: center;
+    }
+    .btn-container{
+        padding: 10px;
+        text-align: right;
+    }
+    .buy-btn {
+        background-color: coral;
+        width: auto;
+        z-index: 2000;
+    }
+}

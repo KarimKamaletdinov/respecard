@@ -9,6 +9,9 @@
 .buyBtn:hover, .buyBtn:active {
     background-color: red !important
 }
+.plh {
+    height: 100px;
+}
 
 
 @media (min-width: 576px) { 

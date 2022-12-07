@@ -123,6 +123,7 @@ export default function Home() {
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
+      <div className={styles.plh}></div>
     </Container>
     <div className={`fixed-bottom ${styles.btnContainer} w-100`}>
         <Button as="a" className={styles.buyBtn} href="https://www.tinkoff.ru/sl/1bAw1sHkCNh" variant='light'>Оформить карту</Button>

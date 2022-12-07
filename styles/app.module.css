@@ -1,23 +1,28 @@
 .picture {
     height: auto;
 }
+.buyBtn {
+    background-color: coral;
+    width: 100%;
+    z-index: 2000;
+}
+.buyBtn:hover, .buyBtn:active {
+    background-color: red !important
+}
 
 
 @media (min-width: 576px) { 
+    .buyBtn {
+        width: auto;
+    }
     .picture {
         max-width: 30%;
-        height: auto;
     }
     .pictureContainer{
         text-align: center;
     }
-    .btn-container{
+    .btnContainer{
         padding: 10px;
         text-align: right;
-    }
-    .buy-btn {
-        background-color: coral;
-        width: auto;
-        z-index: 2000;
     }
 }

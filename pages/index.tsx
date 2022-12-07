@@ -1,10 +1,11 @@
 import Image from 'next/image'
-import { Accordion, Container } from 'react-bootstrap'
+import { Accordion, Button, Container } from 'react-bootstrap'
 import Dl from '../components/dl'
 import { Dtd } from '../components/dtd'
 import Layout from '../components/layout'
 import styles from '../styles/app.module.css'
 import image from '../public/tinkoff_black.jpg'
+import Link from 'next/link'
 
 
 export default function Home() {
@@ -123,5 +124,8 @@ export default function Home() {
         </Accordion.Item>
       </Accordion>
     </Container>
+    <div className={`fixed-bottom ${styles.btnContainer} w-100`}>
+        <Button as="a" className={styles.buyBtn} href="https://www.tinkoff.ru/sl/1bAw1sHkCNh" variant='light'>Оформить карту</Button>
+    </div>
   </Layout>
 }

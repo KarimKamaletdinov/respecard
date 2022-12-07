@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { Accordion, Container } from 'react-bootstrap'
 import Dl from '../components/dl'
-import {Dtd} from '../components/dtd'
+import { Dtd } from '../components/dtd'
 import Layout from '../components/layout'
 import styles from '../styles/app.module.css'
 import image from '../public/tinkoff_black.jpg'
@@ -12,7 +12,7 @@ export default function Home() {
     <Container className='p-2'>
       <h1>Tinkoff Black</h1>
       <div className={`d-inline-block ${styles.pictureContainer}`}>
-        <Image src={image} alt='тут должна быть картинка карты Тинькофф' className={`w-100 ${styles.picture}`}/>
+        <Image src={image} alt='тут должна быть картинка карты Тинькофф' className={`w-100 ${styles.picture}`} />
       </div>
       <ul>
         <li>Процент на остаток – до 6% годовых.</li>
@@ -21,7 +21,7 @@ export default function Home() {
         <li>Оформляя карту <a href="https://www.tinkoff.ru/sl/1bAw1sHkCNh">по нашей ссылке</a>, вы получаете
           бесплатное обслуживание навсегда.</li>
       </ul>
-      <Accordion>
+      <Accordion alwaysOpen>
         <Accordion.Item eventKey="0">
           <Accordion.Header>
             Как заказать карту
@@ -48,6 +48,74 @@ export default function Home() {
                 <ul>
                   <li>Мир</li>
                   <li>Классическая</li>
+                </ul>
+              </Dtd>
+              <Dtd k="Варианты выпуска">Физическая именная</Dtd>
+              <Dtd k="Бесконтактная оплата">Samsung Pay (не точно)</Dtd>
+              <Dtd k="Мультивалютная">Да</Dtd>
+            </Dl>
+          </Accordion.Body>
+        </Accordion.Item>
+        <Accordion.Item eventKey='2'>
+          <Accordion.Header>Привилегии для держателей карты</Accordion.Header>
+          <Accordion.Body>
+            <ul>
+              <li>Возможность оформить финансовую подписку Tinkoff Pro (199 ₽/мес. начиная со 2–го
+                месяца),
+                Tinkoff Premium (1990 ₽/мес., бесплатно при выполнении ряда условий)</li>
+              <li>Возможно оформить виртуальную карту, но до подписания договора будет действовать ряд
+                ограничений</li>
+            </ul>
+          </Accordion.Body>
+        </Accordion.Item>
+        <Accordion.Item eventKey='3'>
+          <Accordion.Header>Тарифы</Accordion.Header>
+          <Accordion.Body>
+            <Dl>
+              <Dtd k="Стоимость выпуска">бесплатно</Dtd>
+              <Dtd k="Стоимость обслуживания">99 ₽ в месяц</Dtd>
+              <Dtd k="Стоимость СМС информирования">бесплатно</Dtd>
+              <Dtd k="Стоимость выпуска">59 ₽ в месяц</Dtd>
+              <Dtd k="Снятие наличных">
+                в банкоматах банка
+                <ul>
+                  <li>бесплатно при снятии до 500 000 ₽ </li>
+                  <li>2% от суммы (мин. 90 ₽), превышающей 500 000 ₽/мес.</li>
+                </ul>
+                в сторонних банкоматах
+                <ul>
+                  <li>бесплатно при снятии от 3 000 ₽, но не более 100 000 ₽/мес. </li>
+                  <li>2% от суммы (мин. 90 ₽) от суммы, превышающей 100 000 ₽/мес.</li>
+                </ul>
+              </Dtd>
+            </Dl>
+          </Accordion.Body>
+        </Accordion.Item>
+        <Accordion.Item eventKey='4'>
+          <Accordion.Header>Бонусы</Accordion.Header>
+          <Accordion.Body>
+            <h3>Кэшбэк</h3>
+            <Dl>
+              <Dtd k="Максимальный кэшбэк">15%</Dtd>
+              <Dtd k="Покупки у партнеров">30%</Dtd>
+              <Dtd k="Сумма начислений в месяц">3 000 ₽/мес</Dtd>
+              <Dtd k="Категории покупок">
+                <ul>
+                  <li>Супермаркеты</li>
+                  <li>Транспорт и такси</li>
+                  <li>Аптеки и медицина</li>
+                  <li>Путешествия и активный отдых</li>
+                  <li>Авто и заправки</li>
+                  <li>Игры и хобби</li>
+                  <li>Дом и ремонт</li>
+                  <li>Кафе и рестораны</li>
+                  <li>Кино и развлечения</li>
+                  <li>Красота и здоровье</li>
+                  <li>Одежда и обувь</li>
+                  <li>Детские товары</li>
+                  <li>Домашние животные</li>
+                  <li>Спорттовары</li>
+                  <li>Электроника</li>
                 </ul>
               </Dtd>
             </Dl>

@@ -1,15 +1,18 @@
+import Image from 'next/image'
 import { Accordion, Container } from 'react-bootstrap'
 import Dl from '../components/dl'
 import {Dtd} from '../components/dtd'
-import Layout from '../components/Layout'
+import Layout from '../components/layout'
 import styles from '../styles/app.module.css'
+import image from '../public/tinkoff_black.jpg'
+
 
 export default function Home() {
   return <Layout>
     <Container className='p-2'>
       <h1>Tinkoff Black</h1>
       <div className={`d-inline-block ${styles.pictureContainer}`}>
-        <img src="./tinkoff_black.jpg" className={`v-100 ${styles.picture}`} />
+        <Image src={image} alt='тут должна быть картинка карты Тинькофф' className={`w-100 ${styles.picture}`}/>
       </div>
       <ul>
         <li>Процент на остаток – до 6% годовых.</li>

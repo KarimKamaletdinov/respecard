@@ -1,6 +1,12 @@
+.picture {
+    height: auto;
+}
+
+
 @media (min-width: 576px) { 
     .picture {
         max-width: 30%;
+        height: auto;
     }
     .pictureContainer{
         text-align: center;

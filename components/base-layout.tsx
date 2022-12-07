@@ -11,3 +11,4 @@ export default function Layout({children} : ScriptProps) {
         <script src="https://cdn.jsdelivr.net/npm/react-bootstrap@next/dist/react-bootstrap.min.js" crossOrigin="anonymous" async></script>
     </>
 }
+//

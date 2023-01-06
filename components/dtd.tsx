@@ -7,7 +7,8 @@ export interface DtdProps {
 
 export function Dtd({children, k}: DtdProps){
     return <>
-    <dt className="col-sm-3">{k}</dt>
-    <dd className="col-sm-9">{children}</dd>
+    <dt>{k}</dt>
+    <dd>{children}</dd>
+    <br/>
     </>
 }

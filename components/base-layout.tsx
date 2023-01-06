@@ -1,14 +1,28 @@
 import Head from "next/head";
 import { ScriptProps } from "next/script";
+import Image from "next/image";
+import { ReactNode } from "react";
+import { Group } from "../types/group";
+import Link from "next/link";
 
-export default function Layout({children} : ScriptProps) {
+export interface DlProps {
+    children: ReactNode
+    groups: Group[]
+}
+
+export default function Layout({children, groups} : DlProps) {
     return <>
         <Head>
-            <title>Сравнение карт Tinkoff</title>
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossOrigin="anonymous" />
+            <title>RESPECARD</title>
+            <link rel="icon" href="/icon.svg"></link>
         </Head>
-        {children}
+        <header>
+            <Image src="/icon.svg" width="0" height="0" style={{ width: 'auto', height: '70px' }} alt="RESPECARD"></Image>
+            {groups.map(group => <Link key={group.name} href={'/' + group.name} className="btn btn-primary">{group.title}</Link>)}
+        </header>
+        <div className="d-flex align-items-center justify-content-center">
+            <main>{children}</main>
+        </div>
         <script src="https://cdn.jsdelivr.net/npm/react-bootstrap@next/dist/react-bootstrap.min.js" crossOrigin="anonymous" async></script>
     </>
 }
-//

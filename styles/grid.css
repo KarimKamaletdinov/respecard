@@ -2,6 +2,9 @@
     main {
         width: 70%;
     }
+    header {
+        height: 70px;
+    }
     .icard {
         margin: 20px auto;
         width: 80%;
@@ -31,8 +34,19 @@
         vertical-align:top;
         padding: 20px;
     }
+    .icard-text h2 {
+        width: calc(100% - 21px);
+        display: inline-block;
+    }
+
     .icard-button {
         padding: 10px;
+        display: inline-block;
+    }
+
+    .additional-info {
+        margin-top: 10px;
+        vertical-align: top;
         display: inline-block;
     }
 }

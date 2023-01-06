@@ -5,4 +5,5 @@ export type Item = {
     name: string,
     shortDescription: Field[]
     groups: FieldGroup[]
+    additionalInfo: Field | null
 }

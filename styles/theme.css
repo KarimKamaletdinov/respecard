@@ -60,3 +60,7 @@ dd {
     font-style: normal;
     font-weight: bold;
 }
+
+.additional-info {
+    cursor: pointer;
+}

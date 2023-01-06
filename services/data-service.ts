@@ -13,7 +13,7 @@ export function getAllGroups():Group[]  {
 function parseField(line: string): Field{
     let eqIndex = line.indexOf('=');
     if(eqIndex == -1) eqIndex = line.length - 1;
-    const beforeEq = line.substring(0, eqIndex);
+    const beforeEq = line.substring(line.includes('::') ? line.indexOf('::') + 2 : 0, eqIndex);
     const afterEq = line.substring(eqIndex + 1);
     return {
         name: beforeEq.trim(),
@@ -32,14 +32,24 @@ function parseItem(name: string, text: string, groups: string[]): Item{
     const lines = text.split('\n');
     const shortDescriptionLines = ([] as string[]);
     const normalizedLines = ([] as string[]);
+    let additionalInfo = (null as Field|null);
     lines.forEach(line => {
         const tline = line.trim();
-        if(tline.startsWith('#')){
-            const normalizedLine = tline.substring(1);
-            shortDescriptionLines.push(prepareLineForShortDescription(normalizedLine));
-            normalizedLines.push(normalizedLine.replace('[', '').replace(']', ''));
+        if(additionalInfo == null){
+            if(tline.startsWith('#')){
+                const normalizedLine = tline.substring(1);
+                shortDescriptionLines.push(prepareLineForShortDescription(normalizedLine));
+                normalizedLines.push(normalizedLine.replace('[', '').replace(']', ''));
+            } else if(tline.startsWith('?')) {
+                additionalInfo = {
+                    name: tline.substring(1).trim(),
+                    value: ''
+                };
+            } else {
+                normalizedLines.push(tline.replace('[', '').replace(']', ''));
+            }
         } else {
-            normalizedLines.push(tline.replace('[', '').replace(']', ''));
+            additionalInfo.value += tline + '\n';
         }
     });
     return {
@@ -50,7 +60,8 @@ function parseItem(name: string, text: string, groups: string[]): Item{
                 title: group,
                 fields: normalizedLines.filter(l => l.startsWith(group)).map(parseField)
             }
-        })
+        }),
+        additionalInfo: additionalInfo
     };
 }
 

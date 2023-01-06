@@ -10,17 +10,24 @@ export type IcProps = {
     data: Item
 }
 
-function renderField(field: Field) {
-    function BBr() {
-        return <><b>{field.name}</b><br /></>
-    }
-    if (field.value == "") {
-        return <BBr key={field.name} />
-    }
-    return <Dtd k={field.name + ": "} key={field.name}>{field.value}</Dtd>;
-}
+
 
 export default function ItemCard({ data }: IcProps) {
+    function replaceOurLink(text: string){
+        return text.replaceAll("по нашей ссылке", `<a href="${data.link}">по нашей ссылке</a>`);
+    }
+
+
+    function renderField(field: Field) {
+        function BBr() {
+            return <><b dangerouslySetInnerHTML={{__html: replaceOurLink(field.name)}}></b><br /></>
+        }
+        if (field.value == "") {
+            return <BBr key={field.name} />
+        }
+        return <Dtd key={field.name}  k={replaceOurLink(field.name) + ": "} v={replaceOurLink(field.value)}></Dtd>;
+    }
+
     let [selectedGroup, setSelectedGroup] = useState<FieldGroup | null>(null);
     return <div className='icard'>
         <div className='icard-main'>

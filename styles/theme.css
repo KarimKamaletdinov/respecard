@@ -67,3 +67,11 @@ dd {
 .additional-info {
     cursor: pointer;
 }
+
+b a, b a:visited, dd a, dd a:visited {
+    color: var(--text-color);
+}
+
+dt a, dt a:visited {
+    color: var(--highlight-text-color);
+}

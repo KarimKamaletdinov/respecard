@@ -1,14 +1,14 @@
 import { ReactNode } from "react";
 
 export interface DtdProps {
-    children: ReactNode
     k: string
+    v: string
 }
 
-export function Dtd({children, k}: DtdProps){
+export function Dtd({k, v}: DtdProps){
     return <>
-    <dt>{k}</dt>
-    <dd>{children}</dd>
+    <dt dangerouslySetInnerHTML={{__html: k}}></dt>
+    <dd dangerouslySetInnerHTML={{__html: v}}></dd>
     <br/>
     </>
 }

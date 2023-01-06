@@ -1,9 +1,12 @@
 @media screen and (min-width: 800px) {
+    header {
+        height: 60px;
+        width: 100%;
+        top: 0;
+        position: sticky;
+    }
     main {
         width: 70%;
-    }
-    header {
-        height: 70px;
     }
     .icard {
         margin: 20px auto;

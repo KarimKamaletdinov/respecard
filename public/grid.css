@@ -1,0 +1,47 @@
+@media screen and (min-width: 800px) {
+    main {
+        width: 70%;
+    }
+    .icard {
+        margin: 20px auto;
+        width: 80%;
+        display: inline-block;
+    }
+    .icard-main {
+        height: 300px;
+    }
+    .icard-image-placetaker {
+        width: 350px;
+        height: 100%;
+        display: inline-block;
+    }
+    .icard-image-container {
+        width: 100%;
+        display: flex;
+    }
+    .icard-image {
+        width: 300px;
+        height: auto;
+        display: block;
+        margin: 20px auto auto auto;
+    }
+    .icard-text {
+        width: calc(100% - 351px);
+        display: inline-block;
+        vertical-align:top;
+        padding: 20px;
+    }
+    .icard-button {
+        padding: 10px;
+        display: inline-block;
+    }
+    .icard-button img {
+        height: 1em;
+        width: auto;
+    }
+}
+
+dd, dt, b {
+    display: inline-block;
+    margin-bottom: .5rem;
+}

@@ -17,7 +17,7 @@ export default function Layout({children, groups} : DlProps) {
             <link rel="icon" href="/icon.svg"></link>
         </Head>
         <header>
-            <Image src="/icon.svg" width="0" height="0" style={{ width: 'auto', height: '100%' }} alt="RESPECARD"></Image>
+            <Link href="/"><Image src="/icon.svg" width="0" height="0" style={{ width: 'auto', height: '100%' }} alt="RESPECARD"></Image></Link>
             {groups.map(group => <Link key={group.name} href={'/' + group.name} className="btn btn-primary">{group.title}</Link>)}
         </header>
         <div className="d-flex align-items-center justify-content-center">

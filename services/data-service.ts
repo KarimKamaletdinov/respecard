@@ -33,6 +33,7 @@ function parseItem(name: string, text: string, groups: string[]): Item{
     const shortDescriptionLines = ([] as string[]);
     const normalizedLines = ([] as string[]);
     let additionalInfo = (null as Field|null);
+    let link = 'error';
     lines.forEach(line => {
         const tline = line.trim();
         if(additionalInfo == null){
@@ -45,7 +46,9 @@ function parseItem(name: string, text: string, groups: string[]): Item{
                     name: tline.substring(1).trim(),
                     value: ''
                 };
-            } else {
+            } else if(tline.startsWith('*')){
+                link = tline.substring(1).trim();
+            }else {
                 normalizedLines.push(tline.replace('[', '').replace(']', ''));
             }
         } else {
@@ -61,7 +64,8 @@ function parseItem(name: string, text: string, groups: string[]): Item{
                 fields: normalizedLines.filter(l => l.startsWith(group)).map(parseField)
             }
         }),
-        additionalInfo: additionalInfo
+        additionalInfo: additionalInfo,
+        link: link
     };
 }
 

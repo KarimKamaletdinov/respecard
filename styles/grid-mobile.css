@@ -2,23 +2,36 @@
     main {
         padding: 10px;
     }
+
     .icard {
         margin: 30px 0;
         padding: 10px 0;
     }
+
     .icard-image-container {
         text-align: center;
         margin-bottom: 10px;
     }
+
     .icard-text h2 {
+        width: calc(100% - 21px);
+        display: inline-block;
         text-align: center;
     }
+
     .icard-image {
         width: 80%;
         height: auto;
     }
+
     .icard-button {
         padding: 10px;
+        display: inline-block;
+    }
+
+    .additional-info {
+        margin-top: 10px;
+        vertical-align: top;
         display: inline-block;
     }
 }

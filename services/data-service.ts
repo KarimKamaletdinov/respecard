@@ -11,7 +11,8 @@ export function getAllGroups():Group[]  {
 }
 
 function parseField(line: string): Field{
-    const eqIndex = line.indexOf('=');
+    let eqIndex = line.indexOf('=');
+    if(eqIndex == -1) eqIndex = line.length - 1;
     const beforeEq = line.substring(0, eqIndex);
     const afterEq = line.substring(eqIndex + 1);
     return {

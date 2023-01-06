@@ -37,6 +37,10 @@ header {
     -ms-user-select: none; /* IE10+/Edge */
     user-select: none; /* Standard */
 }
+.icard-button img {
+    height: 1em;
+    width: auto;
+}
 
 .icard-button-selected img {
     transform: rotate(180deg);

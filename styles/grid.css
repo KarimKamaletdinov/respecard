@@ -5,42 +5,55 @@
         top: 0;
         position: sticky;
         padding-left: 15%;
+        z-index: 1000;
     }
+
     main {
         width: 70%;
     }
+
     .icard {
         margin: 20px auto;
         width: 80%;
         display: inline-block;
     }
+
     .icard-main {
         height: 300px;
     }
+
     .icard-image-placetaker {
         width: 350px;
         height: 100%;
         display: inline-block;
     }
+
     .icard-image-container {
         width: 100%;
         display: flex;
     }
+
     .icard-image {
         width: 300px;
         height: auto;
         display: block;
         margin: 20px auto auto auto;
     }
+
     .icard-text {
         width: calc(100% - 351px);
         display: inline-block;
         vertical-align:top;
         padding: 20px;
     }
+
     .icard-text h2 {
-        width: calc(100% - 21px);
-        display: inline-block;
+        position: relative;
+    }
+
+    .icard-buttons {
+        display: flex;
+        justify-content: space-between;
     }
 
     .icard-button {
@@ -49,9 +62,14 @@
     }
 
     .additional-info {
-        margin-top: 10px;
-        vertical-align: top;
-        display: inline-block;
+        position: absolute;
+        top: 10px;
+        right: 0px;
+    }
+
+    .icard-action {
+        margin: 0 10px 10px 0;
+        min-width: 130px;
     }
 }
 

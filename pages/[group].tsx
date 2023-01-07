@@ -12,7 +12,7 @@ export type GroupProps = {
 }
 
 export default function GroupPage({ group, groups, selectedSort }: GroupProps) {
-    return <Layout groups={groups} selectedGroup={group}>
+    return <Layout groups={groups} selectedGroup={group} title={group.title + " - RESPECARD"}>
         {group.sortableFields.map(field =>
             <Link key={field} href={`/${group.name}/order/${field}`} className={"btn btn-secondary sort-button" + (selectedSort == field ? " btn-highlighted" : "")}>
                 {field.startsWith('!') ? field.substring(1) : field}

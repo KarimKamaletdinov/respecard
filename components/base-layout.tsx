@@ -18,7 +18,7 @@ export default function Layout({ children, groups, selectedGroup, title }: DlPro
             <title>{title}</title>
             <meta name="description" content="РЕСПЕКАРД"></meta>
             <meta name="yandex-verification" content="cb2d1f00ebd10e10" />
-            <link rel="icon" href="/icon.svg"></link>
+            <link rel="icon" href="/favicon.ico"></link>
         </Head>
         <header>
             <Link href="/"><Image src="/icon.svg" width="0" height="0" style={{ width: 'auto', height: '100%' }} alt="RESPECARD"></Image></Link>

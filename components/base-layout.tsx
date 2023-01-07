@@ -16,6 +16,7 @@ export default function Layout({ children, groups, selectedGroup }: DlProps) {
         <Head>
             <title>RESPECARD</title>
             <meta name="description" content="РЕСПЕКАРД"></meta>
+            <meta name="yandex-verification" content="cb2d1f00ebd10e10" />
             <link rel="icon" href="/icon.svg"></link>
         </Head>
         <header>

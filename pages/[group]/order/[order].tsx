@@ -4,6 +4,7 @@ import { Group } from '../../../types/group'
 import { GroupData } from '../../../types/group-data'
 import ItemCard from '../../../components/item-card'
 import GroupPage, { GroupProps } from '../../[group]'
+import React from 'react'
 
 
 export default function OrderPage({ group, groups, selectedSort }: GroupProps) {

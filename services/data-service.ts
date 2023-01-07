@@ -6,7 +6,11 @@ import { Field } from "../types/field";
 
 export function getAllGroups():Group[]  {
     return Object.getOwnPropertyNames(data.groups).map(key => {
-        return { name: key, title: (data.groups as any)[key].title }
+        return { 
+            name: key, 
+            title: (data.groups as any)[key].title, 
+            sortableFields: Object.getOwnPropertyNames((data.groups as any)[key].sort)
+        }
     });
 }
 
@@ -69,12 +73,38 @@ function parseItem(name: string, text: string, groups: string[]): Item{
     };
 }
 
-export function getGroupData(groupName: string): GroupData{
+export function getGroupData(groupName: string, sortBy: string|undefined = undefined): GroupData{
     const group = (data.groups as any)[groupName];
-    return {
+    const result = {
         name: groupName,
         title: group.title,
-        sortableFields: Object.getOwnPropertyNames(group.sort).map(f => f.startsWith('!') ? f.substring(1) : f),
+        sortableFields: Object.getOwnPropertyNames(group.sort),
         content: Object.getOwnPropertyNames(group.items).map(item => parseItem(item, group.items[item], group.groups)),
     };
+    if(sortBy == undefined) return result;
+
+    function valueOf(field: Field): number{
+        const regExp = /[^0-9]/g
+        const intContent = field.value.replaceAll(regExp, '');
+        let result = parseInt(intContent);
+        if(/[Д,д]о /.test(field.value)) result -= 0.0001;
+        return isNaN(result) ? 0 : result;
+    }
+
+    const sortField = group.sort[(sortBy as string)] as RegExp;
+    function includesOf(item: Item): number{
+        const totalFields = item.groups.flatMap(group => group.fields);
+        totalFields.push(...item.shortDescription);
+        const sortingFields = totalFields.filter(field => sortField.test(field.name));
+        const result = sortingFields.map(field => valueOf(field)).reduce(((acc, current) => acc + current), 0);
+        console.log(item.name, result)
+        console.log();
+        return result;
+    }
+
+    result.content = result.content.sort((a, b) => includesOf(a) - includesOf(b));
+    if(sortBy.startsWith('!')){
+        result.content = result.content.reverse();
+    }
+    return result;
 }

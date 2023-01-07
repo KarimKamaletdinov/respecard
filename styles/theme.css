@@ -15,6 +15,17 @@ header {
     border-bottom: 1px solid var(--line-color);
 }
 
+.btn,
+.btn:hover,
+.btn:active,
+.btn:visited,
+.btn:focus, 
+.btn:active:focus {
+    border: 2px solid var(--text-color);
+    color: var(--text-color);
+    font-weight: bold;
+}
+
 .btn-primary,
 .btn-primary:hover,
 .btn-primary:active,
@@ -22,9 +33,25 @@ header {
 .btn-primary:focus, 
 .btn-primary:active:focus {
     background-color: var(--highlight-color);
-    border: 2px solid var(--text-color);
-    color: var(--text-color);
-    font-weight: bold;
+}
+
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:active,
+.btn-secondary:visited,
+.btn-secondary:focus, 
+.btn-secondary:active:focus {
+    background-color: var(--main-color);
+}
+
+.btn-highlighted,
+.btn-highlighted:hover,
+.btn-highlighted:active,
+.btn-highlighted:visited,
+.btn-highlighted:focus, 
+.btn-highlighted:active:focus {
+    outline: 4px solid var(--text-color);
+    outline-offset: -4px;
 }
 
 .icard {
@@ -66,4 +93,16 @@ dd {
 
 .additional-info {
     cursor: pointer;
+}
+
+b a, b a:visited, dd a, dd a:visited {
+    color: var(--text-color);
+}
+
+dt a, dt a:visited {
+    color: var(--highlight-text-color);
+}
+
+.sort-button {
+    margin: 10px;
 }

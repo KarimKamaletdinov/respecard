@@ -1,23 +1,25 @@
-import Image from 'next/image'
-import { Accordion, Button, Container, Overlay, OverlayTrigger, Tooltip } from 'react-bootstrap'
-import Dl from '../components/dl'
-import { Dtd } from '../components/dtd'
 import Layout from '../components/base-layout'
-import image from '../../public/tinkoff_black.jpg'
 import { getAllGroups, getGroupData } from '../services/data-service'
 import { Group } from '../types/group'
 import { GroupData } from '../types/group-data'
 import ItemCard from '../components/item-card'
+import Link from 'next/link'
 
 export type GroupProps = {
     group: GroupData,
-    groups: Group[]
+    groups: Group[],
+    selectedSort: string
 }
 
-export default function GroupPage({ group, groups }: GroupProps) {
-    return <Layout groups={groups}>
-        {group.content.map(item => 
-        <ItemCard data={item} key={item.name}/>
+export default function GroupPage({ group, groups, selectedSort }: GroupProps) {
+    return <Layout groups={groups} selectedGroup={group}>
+        {group.sortableFields.map(field =>
+            <Link key={field} href={`/${group.name}/order/${field}`} className={"btn btn-secondary sort-button" + (selectedSort == field ? " btn-highlighted" : "")}>
+                {field.startsWith('!') ? field.substring(1) : field}
+            </Link>
+        )}
+        {group.content.map(item =>
+            <ItemCard data={item} key={item.name} />
         )}
     </Layout>
 }
@@ -34,7 +36,8 @@ export async function getStaticProps({ params }: any) {
     return {
         props: {
             group: getGroupData(params.group),
-            groups: getAllGroups()
+            groups: getAllGroups(),
+            selectedSort: ""
         },
     }
 }

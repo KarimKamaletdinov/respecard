@@ -10,17 +10,24 @@ export type IcProps = {
     data: Item
 }
 
-function renderField(field: Field) {
-    function BBr() {
-        return <><b>{field.name}</b><br /></>
-    }
-    if (field.value == "") {
-        return <BBr key={field.name} />
-    }
-    return <Dtd k={field.name + ": "} key={field.name}>{field.value}</Dtd>;
-}
+
 
 export default function ItemCard({ data }: IcProps) {
+    function replaceOurLink(text: string){
+        return text.replaceAll("по нашей ссылке", `<a href="${data.link}">по нашей ссылке</a>`);
+    }
+
+
+    function renderField(field: Field) {
+        function BBr() {
+            return <><b dangerouslySetInnerHTML={{__html: replaceOurLink(field.name)}}></b><br /></>
+        }
+        if (field.value == "") {
+            return <BBr key={field.name} />
+        }
+        return <Dtd key={field.name}  k={replaceOurLink(field.name) + ": "} v={replaceOurLink(field.value)}></Dtd>;
+    }
+
     let [selectedGroup, setSelectedGroup] = useState<FieldGroup | null>(null);
     return <div className='icard'>
         <div className='icard-main'>
@@ -37,7 +44,7 @@ export default function ItemCard({ data }: IcProps) {
                             <h4>{data.additionalInfo.name}</h4>
                             <p dangerouslySetInnerHTML={{__html: data.additionalInfo.value.replaceAll('\n', '</p><p>')}}></p>
                         </Tooltip>} placement="auto">
-                        <Image src="question-mark.png" width={20} height={20} className='additional-info' alt='?' />
+                        <Image src="/question-mark.png" width={20} height={20} className='additional-info' alt='?' />
                     </OverlayTrigger>}</h2>
                 <div>{data.shortDescription.map(renderField)}</div>
             </div>
@@ -47,7 +54,7 @@ export default function ItemCard({ data }: IcProps) {
             {data.groups.map(group =>
                 <div key={group.title} onClick={e => setSelectedGroup(selectedGroup == group ? null : group)}
                     className={"icard-button" + (selectedGroup == group ? " icard-button-selected" : "")}>
-                    <Image src="bottom-arrow.svg" width="0" height="0" alt=">" />{group.title}
+                    <Image src="/bottom-arrow.svg" width="0" height="0" alt=">" />{group.title}
                 </div>)}
                 </span>
             <Button href={data.link} className="icard-action">Оформить</Button>

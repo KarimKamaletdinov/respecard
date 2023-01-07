@@ -8,9 +8,10 @@ import Link from "next/link";
 export interface DlProps {
     children: ReactNode
     groups: Group[]
+    selectedGroup: Group
 }
 
-export default function Layout({children, groups} : DlProps) {
+export default function Layout({ children, groups, selectedGroup }: DlProps) {
     return <>
         <Head>
             <title>RESPECARD</title>
@@ -18,7 +19,10 @@ export default function Layout({children, groups} : DlProps) {
         </Head>
         <header>
             <Link href="/"><Image src="/icon.svg" width="0" height="0" style={{ width: 'auto', height: '100%' }} alt="RESPECARD"></Image></Link>
-            {groups.map(group => <Link key={group.name} href={'/' + group.name} className="btn btn-primary">{group.title}</Link>)}
+            {groups.map(group =>
+                <Link key={group.name} href={'/' + group.name} className={"btn btn-primary" + (group.name == selectedGroup.name ? " btn-highlighted" : "")}>
+                    {group.title}
+                </Link>)}
         </header>
         <div className="d-flex align-items-center justify-content-center">
             <main>{children}</main>

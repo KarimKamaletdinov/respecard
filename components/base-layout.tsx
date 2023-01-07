@@ -9,12 +9,13 @@ export interface DlProps {
     children: ReactNode
     groups: Group[]
     selectedGroup: Group|undefined
+    title: string|undefined
 }
 
-export default function Layout({ children, groups, selectedGroup }: DlProps) {
+export default function Layout({ children, groups, selectedGroup, title }: DlProps) {
     return <>
         <Head>
-            <title>RESPECARD</title>
+            <title>{title}</title>
             <meta name="description" content="РЕСПЕКАРД"></meta>
             <meta name="yandex-verification" content="cb2d1f00ebd10e10" />
             <link rel="icon" href="/icon.svg"></link>

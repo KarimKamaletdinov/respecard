@@ -15,6 +15,7 @@ export default function Layout({ children, groups, selectedGroup }: DlProps) {
     return <>
         <Head>
             <title>RESPECARD</title>
+            <meta name="description" content="РЕСПЕКАРД"></meta>
             <link rel="icon" href="/icon.svg"></link>
         </Head>
         <header>

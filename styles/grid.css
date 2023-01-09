@@ -1,4 +1,4 @@
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1200px) {
     header {
         height: 60px;
         width: 100%;
@@ -12,43 +12,34 @@
         width: 70%;
     }
 
-    .icard {
-        margin: 20px auto;
-        width: 80%;
-        display: inline-block;
-    }
-
-    .icard-main {
-        height: 300px;
-    }
-
-    .icard-image-placetaker {
-        width: 350px;
-        height: 100%;
-        display: inline-block;
-    }
-
-    .icard-image-container {
+    .cards-container {
         width: 100%;
-        display: flex;
+        display: grid;
+        grid-template-columns: calc(50% - 20px) calc(50% - 20px);
+        gap: 40px 40px;
+    }
+
+    .icard {
+        display: inline-block;
+        width: 100%;
+    } 
+
+    .icard-right {
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 10px;
+    }
+
+    .icard-left {
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 10px;
     }
 
     .icard-image {
         width: 300px;
         height: auto;
-        display: block;
-        margin: 20px auto auto auto;
-    }
-
-    .icard-text {
-        width: calc(100% - 351px);
-        display: inline-block;
-        vertical-align:top;
-        padding: 20px;
-    }
-
-    .icard-text h2 {
-        position: relative;
+        display: inline;
     }
 
     .icard-buttons {

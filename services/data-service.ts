@@ -97,8 +97,6 @@ export function getGroupData(groupName: string, sortBy: string|undefined = undef
         totalFields.push(...item.shortDescription);
         const sortingFields = totalFields.filter(field => sortField.test(field.name));
         const result = sortingFields.map(field => valueOf(field)).reduce(((acc, current) => acc + current), 0);
-        console.log(item.name, result)
-        console.log();
         return result;
     }
 
